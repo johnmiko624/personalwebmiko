@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Miko Sarsalijo - Personal Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Lora&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        h1, h2 {
+            font-family: 'Lora', serif;
+            margin-bottom: 10px;
+        }
+        .hero {
+            background: url('https://i.gifer.com/2swA.gif') no-repeat center center/cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: fadeIn 2s ease-out;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .btn {
+            background-color: #ff6347;
+            border: none;
+            padding: 1rem 2rem;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 50px;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .btn:hover {
+            transform: scale(1.1);
+            background-color: #6a0dad;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+        .section {
+            padding: 50px 10%;
+            text-align: center;
+            background: url('https://i.gifer.com/5CNH.gif') no-repeat center center/cover;
+            color: white;
+        }
+        .skills .progress-bar {
+            width: 80%;
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .skills .progress {
+            height: 100%;
+            background-color: #6a0dad;
+            animation: progressBar 2s ease-out;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            justify-items: center;
+            margin-top: 50px;
+            background: url('https://i.gifer.com/KNiu.gif') no-repeat center center/cover;
+        }
+        .gallery .image {
+            width: 150px; /* Reduced size */
+            height: auto;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .gallery .image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .timeline {
+            background: url('https://i.gifer.com/KNiu.gif') no-repeat center center/cover;
+            padding: 50px 10%;
+            color: white;
+            text-align: center;
+        }
+        .timeline ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .timeline li {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        .timeline li::before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #6a0dad;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+        .social-links a:hover {
+            color: #ff6347;
+        }
+        .contact-form {
+            background: url('https://i.gifer.com/5YPk.gif') no-repeat center center/cover;
+            padding: 50px 10%;
+            color: white;
+        }
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .contact-form button {
+            background-color: #6a0dad;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: transform 0.3s, background-color 0.3s;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .contact-form button:hover {
+            transform: scale(1.1);
+            background-color: #ff6347;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes progressBar {
+            from { width: 0%; }
+            to { width: 80%; }
+        }
+
+
+        /* New Sections for Food, Anime, and Hobbies */
+        .favorite-food, .favorite-anime, .hobbies, .dream-country {
+            background: url('https://i.gifer.com/7Rvt.gif') no-repeat center center/cover;
+            padding: 50px 10%;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .favorite-food img, .favorite-anime img, .hobbies img, .dream-country img {
+            width: 200px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .favorite-food h2, .favorite-anime h2, .hobbies h2, .dream-country h2 {
+            margin-bottom: 10px;
+        }
+        
+        /* Add this to your existing styles */
+        .skills {
+            background: url('https://i.gifer.com/2swA.gif') no-repeat center center/cover;
+            padding: 50px 10%;
+            color: white;
+            text-align: center;
+        }
+        .skill-item {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+        }
+        .skill-name {
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Add this new secret div section right after the body tag -->
+    <div id="secret-page" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; color: white; text-align: center; padding: 20px;">
+        <div style="max-width: 600px; margin: 50px auto;">
+            <button onclick="closeSecretPage()" style="float: right; background: none; border: none; color: white; font-size: 24px; cursor: pointer;">×</button>
+            <img src="crush.jpeg" alt="Profile Picture" style="width: 200px; height: 200px; border-radius: 50%; margin: 20px auto; display: block; border: 3px solid white;">
+            <h2 style="color: #ff6347;">❤️ Secret Message ❤️</h2>
+            <p style="font-size: 18px; line-height: 1.6; margin-top: 20px;">
+                "Hey Eula, I just wanted to say that you're such an amazing person. You're not only beautiful, but your kindness and the way you make everyone feel so special really stands out to me. Your smile is honestly one of the most beautiful things I’ve ever seen, and your sense of humor always makes me smile. I just wanted to share how much I admire you, and how blessed I feel to know someone like you. 😊
+
+John Miko"
+            </p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero" data-aos="fade-up">
+        <h1>Welcome to My Personal Website</h1>
+        <p>Your journey begins here.</p>
+        <button class="btn" onclick="window.location.href='#about'">Learn More About Me</button>
+        <!-- Adding a small secret button -->
+        <button class="btn secret-btn" onclick="checkPassword()" style="background: transparent; border: none; box-shadow: none; font-size: 12px; padding: 5px;">♥</button>
+    </div>
+
+    <!-- About Me Section -->
+    <div class="section" id="about" data-aos="fade-up">
+        <h2>About Me</h2>
+        <img src="pic.jpeg" alt="Your Photo" style="width: 200px; border-radius: 50%; margin-bottom: 20px;">
+        <p>Hi, I'm <strong>John Miko Sarsalijo</strong>, a passionate Computer Science student studying at [Your School]. I'm currently in my first year, specializing in Data Science. I believe in blending technology and creativity to solve real-world problems and drive innovation. Outside of my studies, I am deeply motivated by faith, personal growth, and my dreams of making a difference in both the tech industry and society.</p>
+    </div>
+
+    <!-- Add this after the About Me section and before the Favorite Food section -->
+    <div class="skills" data-aos="fade-up">
+        <h2>My Skills</h2>
+        <div class="skill-item">
+            <div class="skill-name">JavaScript</div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 85%;">85%</div>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-name">Python</div>
+            <div class="progress-bar">
+                <div class="progress" style="width: 90%;">90%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Favorite Food Section -->
+    <div class="favorite-food" data-aos="fade-up">
+        <h2>Favorite Food</h2>
+        <img src="pic1.jpeg" alt="Favorite Food Image">
+        <p>I absolutely love Bicol Express. It has the perfect balance of flavors that always brings a smile to my face!</p>
+    </div>
+
+    <!-- Favorite Anime Section -->
+    <div class="favorite-anime" data-aos="fade-up">
+        <h2>Favorite Anime</h2>
+        <img src="pic2.jpeg" alt="Favorite Anime Image">
+        <p>One of my favorite anime series is one-piece. It combines action, storytelling, and emotions in a way that always captivates me.</p>
+    </div>
+
+    <!-- Hobbies Section -->
+    <div class="hobbies" data-aos="fade-up">
+        <h2>Hobbies</h2>
+        <img src="pic3.jpeg" alt="Hobby Image">
+        <p>In my free time, I enjoy reading, as they allow me to relax and explore new creative possibilities outside of my academic life.</p>
+    </div>
+
+    <!-- Dream Country Section -->
+    <div class="dream-country" data-aos="fade-up">
+        <h2>Dream Country</h2>
+        <img src="pic4.jpeg" alt="Dream Country Image">
+        <p>If I had the chance to visit or live anywhere, it would be japan, because of its rich culture and stunning landscapes.</p>
+    </div>
+
+    
+
+    <!-- Timeline Section -->
+    <div class="timeline" data-aos="fade-up">
+        <h2>Timeline</h2>
+        <ul style="text-align: center;">
+            <li>Graduated High School in 2023</li>
+            <li>UPHSD in 2024</li>
+            <li>Internship at Negah Company in 2025</li>
+            <li>Graduation in 2028</li>
+        </ul>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-form" data-aos="fade-up">
+        <h2>Contact Me</h2>
+        <form action="submit-form.php" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <div class="social-links">
+            <a href="https://www.facebook.com/share/1B94jsBfAF/">Facebook</a>
+            <a href="https://www.instagram.com/johnmiko_16?igsh=MXI4MHl6eHU5eWRyag==">Instagram</a>
+            <a href="https://www.linkedin.com/in/yourlinkedin">LinkedIn</a>
+        </div>
+    </div>
+
+    <!-- Add these JavaScript functions before the closing body tag -->
+    <script>
+        function checkPassword() {
+            const password = prompt("Enter the secret password:");
+            if (password === "crush") {
+                document.getElementById("secret-page").style.display = "block";
+            } else if (password !== null) {
+                alert("Wrong password! Try again!");
+            }
+        }
+
+        function closeSecretPage() {
+            document.getElementById("secret-page").style.display = "none";
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>
